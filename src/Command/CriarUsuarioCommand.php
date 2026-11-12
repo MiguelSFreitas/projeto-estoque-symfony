@@ -26,10 +26,12 @@ class CriarUsuarioCommand{
         SymfonyStyle $io,
         #[Argument('Email')] string $email,
         #[Argument('Senha')] string $senha,
+        #[Argument('nome')] string $nome,
     ): int {
 
         $usuario = new Usuario();
         $usuario->setEmail($email);
+        $usuario->setNome($nome);
         $usuario->setRoles([$senha]);
 
         $hash = $this->hasher->hashPassword($usuario, $senha);

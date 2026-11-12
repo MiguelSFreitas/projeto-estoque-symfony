@@ -13,7 +13,8 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  * @extends ServiceEntityRepository<Usuario>
  */
 class UsuarioRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
-{
+{   
+    
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Usuario::class);
@@ -32,7 +33,11 @@ class UsuarioRepository extends ServiceEntityRepository implements PasswordUpgra
         $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
     }
-
+    public function salvar(Usuario $usuario): void
+        {
+            $this->getEntityManager()->persist($usuario);
+            $this->getEntityManager()->flush();
+        }
 //    /**
 //     * @return Usuario[] Returns an array of Usuario objects
 //     */
