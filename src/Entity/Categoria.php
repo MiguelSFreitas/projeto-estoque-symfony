@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CategoriaRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -19,6 +21,15 @@ class Categoria
     #[Assert\Length(max: 51, maxMessage: 'O nome deve ter no máximo {{ limit }} caracteres.')]
     private ?string $nome = null;
 
+    /** @var Collection<int, Produto> */
+    #[ORM\OneToMany(mappedBy: 'categoria', targetEntity: Produto::class)]
+    private Collection $produtos;
+
+    public function __construct()
+    {
+        $this->produtos = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,5 +45,11 @@ class Categoria
         $this->nome = $nome;
 
         return $this;
+    }
+
+    /** @return Collection<int, Produto> */
+    public function getProdutos(): Collection
+    {
+        return $this->produtos;
     }
 }
