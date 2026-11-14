@@ -35,7 +35,7 @@ Sistema de controle de estoque desenvolvido com Symfony, com login, cadastro de 
 
 **Nova categoria**
 
-![Nova categoria](docs/img/categoria-nova.png)
+<img width="1292" height="631" alt="Captura de tela de 2026-11-14 18-10-40" src="https://github.com/user-attachments/assets/16b09592-21ed-4e61-9c02-3412ea34e403" />
 
 **Edição**
 
