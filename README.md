@@ -25,13 +25,13 @@ Sistema de controle de estoque desenvolvido com Symfony, com login, cadastro de 
 
 ### Login
 
-![Tela de login](docs/img/login.png)
+<img width="1292" height="631" alt="Captura de tela de 2026-11-14 17-51-58" src="https://github.com/user-attachments/assets/21edb29a-4e9b-49d1-ba82-451ac03b2c06" />
 
 ### Categorias
 
 **Listagem**
 
-![Listagem de categorias](docs/img/categoria-lista.png)
+<img width="1292" height="631" alt="Captura de tela de 2026-11-14 18-06-38" src="https://github.com/user-attachments/assets/a672199f-533a-4d32-8362-53d7cb946d37" />
 
 **Nova categoria**
 
