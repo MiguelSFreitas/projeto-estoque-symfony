@@ -1,8 +1,201 @@
-body {
-    background-color: skyblue;
+:root {
+    --bg: skyblue;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --danger: #dc2626;
+    --danger-hover: #b91c1c;
+    --success-bg: #dcfce7;
+    --success-text: #166534;
+    --radius: 8px;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
 }
 
-/* Container centralizado para a tela de login */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+/* ---------- Menu ---------- */
+nav {
+    background: #0f172a;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav a {
+    color: #e2e8f0;
+    text-decoration: none;
+    padding: 16px 14px;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom-color: var(--primary-color);
+}
+
+/* ---------- Conteúdo principal como card ---------- */
+main {
+    max-width: 960px;
+    margin: 32px auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    font-size: 1.6rem;
+    margin: 0 0 1.25rem;
+    color: var(--text-main);
+}
+
+a { color: var(--primary-color); }
+a:hover { color: var(--primary-hover); }
+
+/* ---------- Tabelas ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+}
+
+th {
+    background: #f1f5f9;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+tbody tr:hover { background: #f8fafc; }
+
+/* ---------- Formulários (padrão do Symfony: div > label + input) ---------- */
+form div { margin-bottom: 1.25rem; }
+
+form label,
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+select,
+textarea,
+.form-control {
+    width: 100%;
+    max-width: 480px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    background: #fff;
+    color: var(--text-main);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus, .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Erros de validação do Symfony */
+form ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0;
+    color: var(--danger);
+    font-size: 0.85rem;
+}
+
+/* ---------- Botões ---------- */
+button,
+.btn,
+.btn-login {
+    display: inline-block;
+    padding: 0.65rem 1.25rem;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.05s;
+}
+
+button:hover, .btn:hover, .btn-login:hover {
+    background: var(--primary-hover);
+    color: #fff;
+}
+
+button:active, .btn:active { transform: translateY(1px); }
+
+.btn-secondary { background: #e2e8f0; color: var(--text-main); }
+.btn-secondary:hover { background: #cbd5e1; color: var(--text-main); }
+
+.btn-danger { background: var(--danger); }
+.btn-danger:hover { background: var(--danger-hover); }
+
+.btn-login { width: 100%; margin-top: 0.5rem; }
+
+/* O form de excluir fica na mesma linha dos outros botões */
+.acoes { display: flex; gap: 8px; align-items: center; }
+.acoes form { display: inline; margin: 0; }
+.acoes form div { margin: 0; }
+
+/* ---------- Alertas ---------- */
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+.alert-success {
+    background: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid #bbf7d0;
+}
+
+.alert-error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    text-align: center;
+}
+
+/* ---------- Login (suas classes originais) ---------- */
 .login-wrapper {
     min-height: 80vh;
     display: flex;
@@ -14,92 +207,29 @@ body {
 .login-card {
     width: 100%;
     max-width: 400px;
-    background: var(--card-bg, #ffffff);
+    background: var(--card-bg);
     border-radius: 12px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow);
     padding: 2.5rem;
-    border: 1px solid var(--border-color, #e2e8f0);
+    border: 1px solid var(--border-color);
 }
 
 .login-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-main, #1e293b);
     margin-bottom: 1.5rem;
     text-align: center;
 }
 
-/* Campos do Formulário */
-.form-group {
-    margin-bottom: 1.25rem;
-}
+.login-card input { max-width: 100%; }
 
-.form-label {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-main, #1e293b);
-    margin-bottom: 0.5rem;
-}
-
-.form-control {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border-color, #e2e8f0);
-    border-radius: 8px;
-    font-size: 0.95rem;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    background-color: #fff;
-    color: var(--text-main, #1e293b);
-}
-
-.form-control:focus {
-    border-color: var(--primary-color, #2563eb);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-/* Botão de Entrar */
-.btn-login {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    background-color: var(--primary-color, #2563eb);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    margin-top: 0.5rem;
-}
-
-.btn-login:hover {
-    background-color: var(--primary-hover, #1d4ed8);
-}
-
-/* Alertas de Erro específicos para login */
-.alert-error {
-    background-color: #fee2e2;
-    color: #991b1b;
-    border: 1px solid #fecaca;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    font-size: 0.875rem;
-    margin-bottom: 1.25rem;
-    text-align: center;
-}
+.form-group { margin-bottom: 1.25rem; }
 
 .logged-in-box {
-    background-color: #f8fafc;
+    background: #f8fafc;
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: var(--radius);
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
     text-align: center;
-}
-
-.logged-in-box a {
-    color: var(--primary-color, #2563eb);
-    text-decoration: underline;
 }

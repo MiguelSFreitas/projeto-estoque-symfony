@@ -51,7 +51,12 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-        public function setNome(string $nome): static
+    public function getNome(): ?string
+    {
+        return $this->nome;
+    }
+
+    public function setNome(string $nome): static
     {
         $this->nome = $nome;
 

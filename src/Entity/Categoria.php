@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CategoriaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CategoriaRepository::class)]
 class Categoria
@@ -13,7 +14,9 @@ class Categoria
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 51)]
+    #[ORM\Column(length: 51, unique: true)]
+    #[Assert\NotBlank(message: 'O nome da categoria é obrigatório.')]
+    #[Assert\Length(max: 51, maxMessage: 'O nome deve ter no máximo {{ limit }} caracteres.')]
     private ?string $nome = null;
 
     public function getId(): ?int
