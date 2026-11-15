@@ -37,8 +37,13 @@
         <nav>
             <a href="{{ path('app_categoria_index') }}">Categorias</a>
             <a href="{{ path('app_produto_index') }}">Produtos</a>
-        </nav>
 
+            {% if app.user %}
+                <span class="boas-vindas">Bem-vindo, {{ app.user.nome }}!</span>
+                <a href="{{ path('app_logout') }}">Sair</a>
+            {% endif %}
+        </nav>
+        
         <main>
             {% for tipo, mensagens in app.flashes %}
                 {% for mensagem in mensagens %}

@@ -233,3 +233,13 @@ button:active, .btn:active { transform: translateY(1px); }
     font-size: 0.9rem;
     text-align: center;
 }
+
+.boas-vindas {
+    margin-left: auto;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+nav .boas-vindas + a {
+    margin-left: 12px;
+}
