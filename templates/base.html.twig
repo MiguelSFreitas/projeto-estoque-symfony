@@ -35,12 +35,14 @@
     </head>
     <body>
         <nav>
-            <a href="{{ path('app_categoria_index') }}">Categorias</a>
-            <a href="{{ path('app_produto_index') }}">Produtos</a>
-
             {% if app.user %}
+                <a href="{{ path('app_categoria_index') }}">Categorias</a>
+                <a href="{{ path('app_produto_index') }}">Produtos</a>
+
                 <span class="boas-vindas">Bem-vindo, {{ app.user.nome }}!</span>
                 <a href="{{ path('app_logout') }}">Sair</a>
+            {% else %}
+                <a href="{{ path('app_login') }}">Entrar</a>
             {% endif %}
         </nav>
         
